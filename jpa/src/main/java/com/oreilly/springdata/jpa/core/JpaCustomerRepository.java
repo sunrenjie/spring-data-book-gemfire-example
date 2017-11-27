@@ -21,6 +21,8 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * Plain JPA based implementation of {@link CustomerRepository}.
  * 
@@ -37,8 +39,8 @@ class JpaCustomerRepository implements CustomerRepository {
 	 * @see com.oreilly.springdata.jpa.core.CustomerRepository#findOne(java.lang.Long)
 	 */
 	@Override
-	public Customer findOne(Long id) {
-		return em.find(Customer.class, id);
+	public Optional<Customer> findById(Long id) {
+		return Optional.ofNullable(em.find(Customer.class, id));
 	}
 
 	/*

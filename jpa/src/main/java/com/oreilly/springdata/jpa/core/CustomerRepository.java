@@ -17,6 +17,8 @@ package com.oreilly.springdata.jpa.core;
 
 import org.springframework.data.repository.Repository;
 
+import java.util.Optional;
+
 /**
  * {@link Repository} to access {@link Customer} instances.
  * 
@@ -30,7 +32,7 @@ public interface CustomerRepository extends Repository<Customer, Long> {
 	 * @param id the id to search for.
 	 * @return
 	 */
-	Customer findOne(Long id);
+	Optional<Customer> findById(Long id);
 
 	/**
 	 * Saves the given {@link Customer}.
