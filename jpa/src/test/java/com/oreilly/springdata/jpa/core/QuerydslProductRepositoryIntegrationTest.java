@@ -47,8 +47,7 @@ public class QuerydslProductRepositoryIntegrationTest extends AbstractIntegratio
 	@Test
 	public void findProductsByQuerydslPredicate() {
 
-		// Product iPad = repository.findOne(product.name.eq("iPad")).get();
-		Product iPad = new Product("foo", BigDecimal.valueOf(1), "bar") ;
+		Product iPad = repository.findOne(product.name.eq("iPad")).get();
 		Predicate tablets = product.description.contains("tablet");
 
 		Iterable<Product> result = repository.findAll(tablets);
