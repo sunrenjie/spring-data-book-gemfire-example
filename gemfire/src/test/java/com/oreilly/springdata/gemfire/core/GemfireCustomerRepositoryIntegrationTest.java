@@ -48,6 +48,9 @@ public class GemfireCustomerRepositoryIntegrationTest {
 
 		assertEquals(1, customerRepository.findAll().size());
 
+		Customer c = customerRepository.findByEmailAddress(new EmailAddress("dave@dmband.com"));
+		assertEquals(dave, c);
+
 		customerRepository.delete(dave);
 		assertEquals(0, customerRepository.findAll().size());
 	}

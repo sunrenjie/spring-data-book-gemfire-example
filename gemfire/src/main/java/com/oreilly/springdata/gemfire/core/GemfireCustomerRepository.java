@@ -88,7 +88,7 @@ class GemfireCustomerRepository implements CustomerRepository {
 	@Override
 	public Customer findByEmailAddress(EmailAddress emailAddress) {
 
-		String queryString = "emailAddress = ?1";
+		String queryString = "SELECT * FROM /Customer x WHERE x.emailAddress = $1";
 		return template.findUnique(queryString, emailAddress);
 	}
 
